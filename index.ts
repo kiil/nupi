@@ -1,4 +1,5 @@
 import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import { Text } from "@mariozechner/pi-tui";
 import { Type } from "@sinclair/typebox";
 import { spawn } from "child_process";
 import { tmpdir } from "os";
@@ -51,6 +52,22 @@ export default function (pi: ExtensionAPI) {
 				})
 			),
 		}),
+
+		renderCall(args, theme, context) {
+			const text = (context.lastComponent as Text | undefined) ?? new Text("", 0, 0);
+			const label = theme.fg("toolTitle", "🐘 nushell");
+			const firstLine = args.command.split("\n")[0];
+			const preview = firstLine + (args.command.includes("\n") ? " …" : "");
+			text.setText(`${label} ${theme.fg("muted", preview)}`);
+			return text;
+		},
+
+		renderResult(result, _options, theme, context) {
+			const text = (context.lastComponent as Text | undefined) ?? new Text("", 0, 0);
+			const output = result.content[0]?.type === "text" ? result.content[0].text : "";
+			text.setText(theme.fg("toolOutput", output));
+			return text;
+		},
 
 		async execute(toolCallId, params, signal, onUpdate, ctx) {
 			const { command, timeout = 30_000 } = params;

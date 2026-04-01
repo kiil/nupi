@@ -4,11 +4,13 @@
   "description": "Pi coding agent extension — replaces the bash tool with nushell",
   "type": "module",
   "pi": {
-    "extensions": ["index.ts"]
+    "extensions": ["index.ts"],
+    "themes": ["themes/nupi.json"]
   },
   "keywords": ["pi-coding-agent", "nushell", "extension"],
   "peerDependencies": {
     "@mariozechner/pi-coding-agent": "*",
+    "@mariozechner/pi-tui": "*",
     "@sinclair/typebox": "*"
   }
 }
