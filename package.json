@@ -1,0 +1,12 @@
+{
+  "name": "nupi",
+  "version": "1.0.0",
+  "description": "Pi coding agent extension — replaces the bash tool with nushell",
+  "main": "index.ts",
+  "type": "module",
+  "keywords": ["pi-coding-agent", "nushell", "extension"],
+  "peerDependencies": {
+    "@mariozechner/pi-coding-agent": "*",
+    "@sinclair/typebox": "*"
+  }
+}
