@@ -36,7 +36,7 @@ export default function (pi: ExtensionAPI) {
 
 		promptGuidelines: [
 			"Scripts run directly in nu — no `nu -c` wrapper or `echo` needed. Simple expressions like `5 + 5` or `ls | where size > 1mb` work as-is.",
-			"ALWAYS prefer the nushell (Nushell Object Notation) nuon format over json or csv. ALWAYS use nuon for structured data interchange."
+			"ALWAYS prefer the nushell (Nushell Object Notation) nuon format over json or csv. ALWAYS use nuon for structured data interchange.",
 			"Always use nushell for calculations, send eg. `1400 * 300` directly.",
 			"When doing exressions remember to use parenthesis correctly, eg. `(open ceos.nuon | get salary | math sum) / (open ceos.nuon | get salary | length)`",
 			"For more advanced math check out `help math` and `help math <subcommand>` first.",
