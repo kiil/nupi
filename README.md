@@ -30,7 +30,7 @@ You can use this in your pi config if you additionally want nushell for the ! an
 
 You can even set nushell up to output `nuon` instead of the standard table. To make the output digestable and token effective for the coding agent and underlying LLM.
 
-Add this in your gene `pi.nu`.
+Add this in your `pi.nu`.
 
 ```nushell
 $env.config = {
@@ -47,8 +47,15 @@ $env.config = {
 }
 ```
 
-Unfortunately, there is currently no clean way to make this work for the ! and !! functionality as the shellPath config option does not accept arguments.
+Unfortunately, there is currently no clean way to make this work for the ! and !! functionality automatically as the shellPath config option does not accept arguments and there currently does not seem to be another option for setting arguments.
 
+You can of course always do this:
+
+`!command | to nuon` (to get the output into the context)
+
+or this
+
+`!!command | to nuon` (to leave output out of context)
 
 ## Behavior
 
